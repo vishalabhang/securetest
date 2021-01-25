@@ -10,7 +10,7 @@ function checkcall() {
         fetch(imgString)
             .then(res => res.blob())
       .then(blob => {
-        const f = new File([blob], "File name",{ type: "image/png" })
+        const f = new File([blob], "share.png",{ type: "image/png" })
          data.files.push(f);
                 downloadURI(data);
       });
