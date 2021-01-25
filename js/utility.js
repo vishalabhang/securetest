@@ -1,12 +1,15 @@
 function checkcall() {
     console.log("Hi this is call from JS")
-
-    html2canvas(document.body).then(canvas => {
+ html2canvas(document.body).then(canvas => {
         console.log("clicked");
         var imgString = canvas.toDataURL("image/png");
-        downloadURI(imgString, "helloWorld.png");
-    });
+        fetch(imgString)
+            .then(function (response) {
+                //return response.blob();
+                downloadURI(response.blob(), "share.png");
+            })
 
+    });
 
 }
 
