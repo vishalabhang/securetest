@@ -2,7 +2,7 @@ function checkcall() {
     console.log("Hi this is call from JS")
 
     let data = { files: [], text: 'Pictures', title: 'Pictures' };
-    const options = { type: image/png };
+    const options = { type: "image/png" };
 
     html2canvas(document.body).then(canvas => {
         console.log("clicked");
