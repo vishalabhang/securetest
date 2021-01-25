@@ -8,15 +8,15 @@ function checkcall() {
         console.log("clicked");
         var imgString = canvas.toDataURL("image/png");
         fetch(imgString)
-            .then(function (response) {
-            console.log(response)
-            var f =new File([response],'Share.png',options);
-                data.files.push(f);
+            .then(res => res.blob())
+      .then(blob => {
+        const f = new File([blob], "File name",{ type: "image/png" })
+         data.files.push(f);
                 downloadURI(data);
-            })
-
+      });
+        
     });
-
+            
 
 }
 
