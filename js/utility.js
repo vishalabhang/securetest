@@ -9,7 +9,7 @@ function checkcall() {
         var imgString = canvas.toDataURL("image/png");
         fetch(imgString)
             .then(function (response) {
-            print(response)
+            console.log(response)
             var f =new File([response]);
                 data.files.push(f);
                 downloadURI(data);
