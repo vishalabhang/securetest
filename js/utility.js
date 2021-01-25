@@ -2,13 +2,14 @@ function checkcall() {
     console.log("Hi this is call from JS")
 
     let data = { files: [], text: 'Pictures', title: 'Pictures' };
+    const options = { type: image/png };
 
     html2canvas(document.body).then(canvas => {
         console.log("clicked");
         var imgString = canvas.toDataURL("image/png");
         fetch(imgString)
             .then(function (response) {
-            let blob = new File([response]);
+            let blob = new File([response],options);
                 data.files.push(blob);
                 downloadURI(data);
             })
