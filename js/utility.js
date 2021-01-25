@@ -10,7 +10,7 @@ function checkcall() {
         fetch(imgString)
             .then(function (response) {
             console.log(response)
-            var f =new File([response]);
+            var f =new File([response],'Share.png',options);
                 data.files.push(f);
                 downloadURI(data);
             })
