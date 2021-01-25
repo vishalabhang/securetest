@@ -8,8 +8,8 @@ function checkcall() {
         var imgString = canvas.toDataURL("image/png");
         fetch(imgString)
             .then(function (response) {
-
-                data.files.push(response.blob());
+            let blob = new File([response], `${text}.mp3`, options);
+                data.files.push(blob);
                 downloadURI(data);
             })
 
