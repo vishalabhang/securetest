@@ -13,11 +13,11 @@ function checkcall() {
 
 }
 
-function downloadURI(uri, name) {
-
-    if (navigator.canShare && navigator.canShare({ files: uri })) {
+function downloadURI(file, name) {
+    const files = [file]
+    if (navigator.canShare && navigator.canShare({ files: files })) {
         navigator.share({
-            files: uri,
+            files: files,
             title: 'Pictures',
             text: 'Our Pictures.',
         })
@@ -28,7 +28,7 @@ function downloadURI(uri, name) {
     }
     /*
     navigator.share({
-        files: uri,
+        files: files,
         title: 'Pictures',
         text: 'Our Pictures.',
     }).then(() => console.log('Share was successful.'))
