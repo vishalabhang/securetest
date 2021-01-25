@@ -1,26 +1,27 @@
 function checkcall() {
     console.log("Hi this is call from JS")
- html2canvas(document.body).then(canvas => {
+
+    let data = { files: [], text: 'Pictures', title: 'Pictures' };
+
+    html2canvas(document.body).then(canvas => {
         console.log("clicked");
         var imgString = canvas.toDataURL("image/png");
         fetch(imgString)
             .then(function (response) {
-                //return response.blob();
-                downloadURI(response.blob(), "share.png");
+
+                data.files.push(response.blob());
+                downloadURI(data);
             })
 
     });
 
+
 }
 
-function downloadURI(file, name) {
-    const files = [file]
-    if (navigator.canShare && navigator.canShare({ files: files })) {
-        navigator.share({
-            files: files,
-            title: 'Pictures',
-            text: 'Our Pictures.',
-        })
+function downloadURI(data) {
+
+    if (navigator.canShare && navigator.canShare(data)) {
+        navigator.share(data)
             .then(() => console.log('Share was successful.'))
             .catch((error) => console.log('Sharing failed', error));
     } else {
@@ -28,11 +29,10 @@ function downloadURI(file, name) {
     }
     /*
     navigator.share({
-        files: files,
+        files: uri,
         title: 'Pictures',
         text: 'Our Pictures.',
     }).then(() => console.log('Share was successful.'))
         .catch((error) => console.log('Sharing failed', error));
         */
-     
 }
