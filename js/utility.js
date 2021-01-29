@@ -6,14 +6,25 @@ function checkcall() {
 
     html2canvas(document.body).then(canvas => {
         console.log("clicked");
+        canvas.toBlob(function (blob) {
+            console.log(blob);
+            const f = new File([blob], "share.png", { type: "image/png" })
+            data.files.push(f);
+            downloadURI(data);
+        });
+
+        /*
         var imgString = canvas.toDataURL("image/png");
+
         fetch(imgString)
             .then(res => res.blob())
             .then(blob => {
+                console.log(blob);
                 const f = new File([blob], "share.png", { type: "image/png" })
                 data.files.push(f);
                 downloadURI(data);
             });
+            ?*/
 
     });
 
