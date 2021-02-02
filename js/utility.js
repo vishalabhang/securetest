@@ -49,3 +49,22 @@ function downloadURI(data) {
         .catch((error) => console.log('Sharing failed', error));
         */
 }
+
+function getExcel() {
+
+
+    let data = { files: [], text: 'Pictures', title: 'Pictures' };
+    const options = { type: "text/csv" };
+
+
+    console.log("GET Excel & convert to file")
+    var fetch_url = "https://apidir.hdfclife.com/hyper-admin-dev/task-price-point?channel_sub_channel_id=10"
+    fetch(fetch_url)
+        .then(response => response.blob())
+        .then(function (myBlob) {
+            console.log(myBlob);
+            const f = new File([myBlob], "tpp.csv", { type: "text/csv" })
+            data.files.push(f);
+            downloadURI(data);
+        });
+}
