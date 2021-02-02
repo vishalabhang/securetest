@@ -58,7 +58,7 @@ function getExcel() {
 
 
     console.log("GET Excel & convert to file")
-    var fetch_url = "https://apidir.hdfclife.com/hyper-admin-dev/task-price-point?channel_sub_channel_id=10"
+    var fetch_url = " URL"
     fetch(fetch_url)
         .then(response => response.blob())
         .then(function (myBlob) {
