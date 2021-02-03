@@ -3,7 +3,7 @@ function checkcall() {
 
     let data = { files: [], text: 'Pictures', title: 'Pictures' };
     const options = { type: "image/png" };
-
+document.body.style.overflow = 'visible
     html2canvas(document.body,{windowHeight :'1200px'}).then(canvas => {
 canvas.width = document.body.scrollWidth
 canvas.height = document.body.scrollHeight
