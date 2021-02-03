@@ -37,7 +37,7 @@ function downloadURI(data) {
     if (navigator.canShare && navigator.canShare(data)) {
         navigator.share(data)
             .then(() => alert('Share was successful.'))
-            .catch((error) => alert('Sharing failed', error));
+            .catch((error) => alert(error));
     } else {
         //alert(`Your system doesn't support sharing files.`);
 navigator.share(data)
