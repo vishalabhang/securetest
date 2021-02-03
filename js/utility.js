@@ -5,6 +5,8 @@ function checkcall() {
     const options = { type: "image/png" };
 
     html2canvas(document.body,{windowHeight :'1200px'}).then(canvas => {
+canvas.width = document.body.scrollWidth
+canvas.height = document.body.scrollHeight
         console.log("clicked");
         canvas.toBlob(function (blob) {
             console.log(blob);
