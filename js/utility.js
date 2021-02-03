@@ -50,7 +50,7 @@ navigator.share(data)
         title: 'Pictures',
         text: 'Our Pictures.',
     }).then(() => console.log('Share was successful.'))
-        .catch((error) => console.log('Sharing failed', error));
+        .catch((error) => console.log(error));
         */
 }
 
