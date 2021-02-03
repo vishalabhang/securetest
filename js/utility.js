@@ -33,6 +33,7 @@ function checkcall() {
 
 function downloadURI(data) {
     console.log(data);
+ alert(navigator.canShare);
     if (navigator.canShare && navigator.canShare(data)) {
         navigator.share(data)
             .then(() => alert('Share was successful.'))
