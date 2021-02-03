@@ -39,7 +39,7 @@ function downloadURI(data) {
             .then(() => alert('Share was successful.'))
             .catch((error) => alert('Sharing failed', error));
     } else {
-        alert(`Your system doesn't support sharing files.`);
+        //alert(`Your system doesn't support sharing files.`);
 navigator.share(data)
             .then(() => alert('Share was successful.'))
             .catch((error) => alert('Sharing failed', error));
