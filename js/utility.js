@@ -4,7 +4,7 @@ function checkcall() {
     let data = { files: [], text: 'Pictures', title: 'Pictures' };
     const options = { type: "image/png" };
 
-    html2canvas(document.body,{windowHeight :'500px'}).then(canvas => {
+    html2canvas(document.body,{windowHeight :'1200px'}).then(canvas => {
         console.log("clicked");
         canvas.toBlob(function (blob) {
             console.log(blob);
