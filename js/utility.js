@@ -1,6 +1,6 @@
 function checkcall() {
     console.log("Hi this is call from JS")
-
+/*
     let data = { files: [], text: 'Pictures', title: 'Pictures' };
     const options = { type: "image/png" };
 document.body.style.overflow = 'visible
@@ -14,7 +14,19 @@ canvas.height = document.body.scrollHeight
             data.files.push(f);
             downloadURI(data);
         });
+*/
+    
+    let data = { files: [], text: 'Pictures', title: 'Pictures' };
+    const options = { type: "image/png" };
 
+    html2canvas(document.body).then(canvas => {
+        console.log("clicked");
+        canvas.toBlob(function (blob) {
+            console.log(blob);
+            const f = new File([blob], "share.png", { type: "image/png" })
+            data.files.push(f);
+            downloadURI(data);
+        });
         /*
         var imgString = canvas.toDataURL("image/png");
 
